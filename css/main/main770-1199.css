@@ -1,0 +1,261 @@
+@media (max-width:1199px) {
+
+    html {
+        font-size: 3.5px;
+    }
+
+    #wrap {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .inner {
+        width: 85%;
+    }
+
+    .title {
+        padding-top: 200px;
+        margin-bottom: 100px;
+    }
+
+    .title__big {
+        width: 75%;
+    }
+
+    /*main*/
+    .main__title {
+        width: 80%;
+    }
+
+    .main__title>span {
+        font-size: 50px;
+    }
+
+    /*city*/
+    .city__box--cityname {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .city__box--korean,
+    .city__box--english {
+        display: block;
+    }
+
+    .city__box--korean {
+        position: absolute;
+        bottom: 20%;
+        left: 20px;
+    }
+
+    .city__box--english {
+        margin-left: 0;
+        position: absolute;
+        bottom: 10%;
+        left: 20px;
+    }
+
+    .city__box::before {
+        height: 70%;
+    }
+
+    /*nature*/
+    .natural .title__big {
+        width: 62%;
+    }
+    .natural__box--align {
+        transform: translateY(-130px);
+    }
+    .natural__box--title{
+        display: inline-block;
+    }
+    #natural__inner {
+        margin-bottom: -130px;
+    }
+
+    .natural__box--picture:hover+.natural__box--title::before {
+        width: calc(100% + 6px);
+    }
+
+    /*food*/
+    .food__align {
+        transform: translate(0px);
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .food__select {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 50vw;
+    }
+
+    .food__type {
+        width: calc(13.5vw);
+        height: 20vw;
+        border-radius: 20px;
+    }
+
+    .food__content {
+        height: 100%;
+        padding-top: 0;
+        background-position: center;
+    }
+ 
+    .food__type {
+        padding-top: 0px;
+    }
+
+    .food__type::after {
+        bottom:auto;
+        top: -20px;
+        left:auto;
+        right:0;
+        transform: translateX(50%);
+    }
+
+
+    #food__inner {
+        padding-bottom: 0px;
+        margin-bottom:0px;
+    }
+
+    .food__korean {
+        font-size: var(--size-m);
+    }
+
+    .food__english {
+        font-size: var(--size-s);
+        flex-grow: 0;
+        margin-bottom:20px;
+    }
+    .food__content--align{
+        flex-grow: 0;
+        flex-direction: row;
+        gap:16px;
+    }
+    .food__content--all {
+        width: 100%;
+        margin: 5%;
+        height: 100%;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        padding: 40px;
+        backdrop-filter: blur(0px);
+        margin: 0;
+        box-shadow: none;
+        background: linear-gradient(360deg, rgba(0,0,0,.5) 30%, rgba(0,0,0,0));
+        justify-content: flex-end;
+    }
+    #food__content--second {
+        background-position: center;
+    }
+    #food__content--third{
+        background-size: 150%;
+    }
+    /*recommed*/
+    .swiper {
+        height: 38vw;
+    }
+
+    .swiper-slide {
+        width: 25vw !important;
+    }
+
+    .sw__ailgn {
+        width: 85%;
+    }
+    .sw__title,
+    .sw__content{
+        margin-left:20px;
+        text-align: left;
+    }
+    #sw__title--small{
+        text-align: left;
+        margin-bottom:10px;
+    }
+    .sw__content {
+        margin-bottom:20px;
+    }
+    /*district*/
+    #district__bg--inner {
+        flex-direction: column;
+        gap:30px;
+    }
+    .district__content--korean,
+    .district__content--english{
+        width: 100%;
+    }
+    .district__bg {
+        height: 70%;
+        background-size: 300%;
+    }
+    .district__content {
+        margin-left: 0px;
+        width: 100%;
+        height: 30vw;
+        padding: 5% 9%;
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center;
+        justify-content: center;
+        
+    }
+    .district__content--korean{
+        order:1;
+        width: 50%;
+    }
+    .district__content--english{
+        order:2;
+        width: 50%;
+        margin-bottom:10px;
+    }
+    .district__info{
+        order:4;
+        width: 50%;
+    }
+    #district__btn{
+        order:3;
+        margin-top:0;
+    }
+    .district__map--name--Northern_Territory {
+        transform: translate(80px, 10px);
+    }
+    /*weather*/
+    .weather {
+        padding-bottom: 200px;
+    }
+
+    .weather__align {
+        flex-direction: column-reverse;
+        gap: 30px;
+    }
+
+    .weather__box {
+        width: 100%;
+    }
+
+    .time__now {
+        width: 240px;
+    }
+
+    .title__info {
+        width: 80%;
+        margin-bottom: 70px;
+    }
+
+    .title__weather {
+        margin-bottom: 20px;
+    }
+    .weather__error{
+        order:-1;
+        margin-top: 0px;
+    }
+}
