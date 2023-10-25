@@ -11,9 +11,8 @@ const brisbaneTimeZone = "Australia/Brisbane";
 
 //초단위로 업데이트 됨.
 //서머타임 시행시 브리즈번 버튼 클릭 이벤트에서 오류 발생으로 수정//
-// let timeObj = {};
+
 function callAusTimeObj(cityTimeZone) {
-  // function timeUpDate() {
   //도시 시간대(기본정보) 불러오기
   let cityTime = luxon.DateTime.now().setZone(cityTimeZone);
   let cityTimeNow = cityTime.toFormat("HH:mm:ss");
@@ -65,17 +64,16 @@ function callAusTimeObj(cityTimeZone) {
   } else {
     isCityDST = "";
   }
-  let timeObj = { cityTimeNow, cityMeridiem, cityDate, cityDay, isCityDST };
-  return timeObj;
-  // console.log(timeObj);
-  // setTimeout(timeUpDate, 200);
-  // }
-  // timeUpDate();
+
+  document.getElementById("time__now--australia").innerText = cityTimeNow;
+  document.getElementById("time__merdiem--australia").innerText = cityMeridiem;
+  document.getElementById("today__now--australia").innerText = cityDate;
+  document.getElementById("today__day--australia").innerText = cityDay;
+  document.getElementById("weather__summertime--dtc").innerText = isCityDST;
 }
 
 /*날씨정보 알아오기*/
-// const api = config.apikey; //gitignore에서 숨겨짐
-//const api = process.env.API_KEY; //apikey
+const api = process.env.API_KEY; //환경변수로 호출
 
 //날씨별 아이콘 이름
 async function weather(city) {
@@ -186,10 +184,13 @@ const melbourneBtn = document.getElementById("btn__blur--melbourne");
 const brisbaneBtn = document.getElementById("btn__blur--brisbane");
 const btnAll = document.querySelectorAll(".btn__blur--weather");
 
-//기본 한 번 호출
-// let firstCall = putAustraliaTime(sydneyTimeZone);
-//weather("seoul");
-//weather("sydney");
+// load 되면 바로 호출
+weather("seoul");
+weather("sydney");
+// setInterval을 넣고, clearInterval에 사용된다.
+let intervalTime = setInterval(() => {
+  callAusTimeObj(sydneyTimeZone);
+}, 200);
 
 //버튼 호출
 btnAll.forEach((btn) => {
@@ -199,60 +200,29 @@ btnAll.forEach((btn) => {
       btn.classList.remove("active");
     });
     e.target.classList.add("active");
-    console.log(e.target.innerText);
 
-    let timeObj = {};
+    clearInterval(intervalTime);
     if (e.target.innerText === "시드니") {
-      timeObj = callAusTimeObj(sydneyTimeZone);
+      weather("Sydney, AU");
+      intervalTime = setInterval(() => {
+        callAusTimeObj(sydneyTimeZone);
+      }, 200);
       //멜버른 버튼 클릭
     } else if (e.target.innerText === "멜버른") {
-      timeObj = callAusTimeObj(melbourneTimeZone);
+      weather("Melbourne, AU");
+      intervalTime = setInterval(() => {
+        callAusTimeObj(melbourneTimeZone);
+      }, 200);
       //브리즈번 버튼 클릭
     } else if (e.target.innerText === "브리즈번") {
-      timeObj = callAusTimeObj(brisbaneTimeZone);
+      weather("Brisbane, AU");
+      intervalTime = setInterval(() => {
+        callAusTimeObj(brisbaneTimeZone);
+      }, 200);
     }
     console.log(timeObj);
-
-    setInterval(() => {
-      console.log(timeObj);
-      document.getElementById("time__now--australia").innerText =
-        timeObj.cityTimeNow;
-      document.getElementById("time__merdiem--australia").innerText =
-        timeObj.cityMeridiem;
-      document.getElementById("today__now--australia").innerText =
-        timeObj.cityDate;
-      document.getElementById("today__day--australia").innerText =
-        timeObj.cityDay;
-      document.querySelector(".weather__icon--australia").innerText =
-        timeObj.isCityDST;
-    }, 200);
   });
 });
-// sydneyBtn.addEventListener("click", (event) => {
-//   callAusTimeObj(sydneyTimeZone);
-
-//   //weather("Sydney, AU");
-//   btnAll.forEach((btn) => {
-//     btn.classList.remove("active");
-//   });
-//   event.target.classList.add("active");
-// });
-// melbourneBtn.addEventListener("click", (event) => {
-//   putAustraliaTime(melbourneTimeZone);
-//   //weather("Melbourne, AU");
-//   btnAll.forEach((btn) => {
-//     btn.classList.remove("active");
-//   });
-//   event.target.classList.add("active");
-// });
-// brisbaneBtn.addEventListener("click", (event) => {
-//   putAustraliaTime(brisbaneTimeZone);
-//   // weather("Brisbane, AU");
-//   btnAll.forEach((btn) => {
-//     btn.classList.remove("active");
-//   });
-//   event.target.classList.add("active");
-// });
 
 /*시간 계산하기*/
 //한국 시간 계산하기
