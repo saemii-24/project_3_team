@@ -3,6 +3,5 @@ node_modules/
 dist/
 .env
 .vercel
-api/
 package-lock.json
 package.json

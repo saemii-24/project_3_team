@@ -73,8 +73,6 @@ function callAusTimeObj(cityTimeZone) {
 }
 
 /*날씨정보 알아오기*/
-const api = process.env.API_KEY; //환경변수로 호출
-
 //날씨별 아이콘 이름
 async function weather(city) {
   //서버리스 함수에 요청. city는 req.query로 주게 됨
@@ -220,7 +218,6 @@ btnAll.forEach((btn) => {
         callAusTimeObj(brisbaneTimeZone);
       }, 200);
     }
-    console.log(timeObj);
   });
 });
 
