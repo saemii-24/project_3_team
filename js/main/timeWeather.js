@@ -74,9 +74,9 @@ function callAusTimeObj(cityTimeZone) {
 
 /*날씨정보 알아오기*/
 //날씨별 아이콘 이름
-async function weather(city) {
+async function weather(cityName) {
   //서버리스 함수에 요청. city는 req.query로 주게 됨
-  await fetch(`/api/serverless?city=${city}`)
+  await fetch(`/api/serverless?cityName=${cityName}`)
     .then((res) => res.json())
     .then((data) => {
       // console.log(data);
