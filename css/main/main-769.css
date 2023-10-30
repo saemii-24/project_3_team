@@ -285,6 +285,9 @@
         order:-1;
         margin-top: 0px;
     }
+    .weather__load{
+        font-size: 28px;
+    }
 }
 
 @media (max-width:650px) {

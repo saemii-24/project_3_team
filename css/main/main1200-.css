@@ -1067,6 +1067,19 @@ hr{
   border:1.5px solid var(--white);
 }
 
-/* #weather__bg--js--first{
-  opacity: 0.5;
-} */
+.weather__load{
+  margin-top:24px;
+  width: var(--main-title);
+  height: var(--main-title);
+}
+.weather__load__icon{
+  animation: loadRotate 800ms linear infinite;
+  font-size: var(--main-title);
+}
+@keyframes loadRotate{
+  to{
+    transform: rotate(360deg);
+  }from{
+    transform: rotate(0deg);
+  }
+}

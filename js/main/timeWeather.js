@@ -73,8 +73,17 @@ function callAusTimeObj(cityTimeZone) {
 }
 
 /*날씨정보 알아오기*/
+
 //날씨별 아이콘 이름
 async function weather(cityName) {
+  //정보 불러오기 전 load 표시
+  const showLoad = document.querySelector(".weather__load");
+  const showTemp = document.querySelector(".weather__temp__australia");
+  const showLoadText = document.getElementById("weather__city--australia");
+
+  showLoad.style.display = "block";
+  showTemp.style.display = "none";
+  showLoadText.innerText = "날씨를 로딩중 입니다.";
   //서버리스 함수에 요청. city는 req.query로 주게 됨
   await fetch(`/api/serverless?cityName=${cityName}`)
     .then((res) => res.json())
@@ -174,6 +183,8 @@ async function weather(cityName) {
         });
       });
     });
+  showLoad.style.display = "none";
+  showTemp.style.display = "flex";
 }
 
 //button dom요소
@@ -199,12 +210,14 @@ btnAll.forEach((btn) => {
     });
     e.target.classList.add("active");
 
+    //버튼을 클릭하면 clearInterval 하고 진행되어야 한다.
     clearInterval(intervalTime);
     if (e.target.innerText === "시드니") {
       weather("Sydney, AU");
       intervalTime = setInterval(() => {
         callAusTimeObj(sydneyTimeZone);
       }, 200);
+      q;
       //멜버른 버튼 클릭
     } else if (e.target.innerText === "멜버른") {
       weather("Melbourne, AU");
