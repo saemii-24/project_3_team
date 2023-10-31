@@ -583,29 +583,28 @@ let intervalTime = setInterval(() => {
 
 //버튼 호출
 btnAll.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
+  btn.addEventListener("click", (event) => {
     //btn 1개만 active 되게
     btnAll.forEach((btn) => {
       btn.classList.remove("active");
     });
-    e.target.classList.add("active");
+    event.target.classList.add("active");
 
     //버튼을 클릭하면 clearInterval 하고 진행되어야 한다.
     clearInterval(intervalTime);
-    if (e.target.innerText === "시드니") {
+    if (event.target.innerText === "시드니") {
       weather("Sydney, AU");
       intervalTime = setInterval(() => {
         callAusTimeObj(sydneyTimeZone);
       }, 200);
-      q;
       //멜버른 버튼 클릭
-    } else if (e.target.innerText === "멜버른") {
+    } else if (event.target.innerText === "멜버른") {
       weather("Melbourne, AU");
       intervalTime = setInterval(() => {
         callAusTimeObj(melbourneTimeZone);
       }, 200);
       //브리즈번 버튼 클릭
-    } else if (e.target.innerText === "브리즈번") {
+    } else if (event.target.innerText === "브리즈번") {
       weather("Brisbane, AU");
       intervalTime = setInterval(() => {
         callAusTimeObj(brisbaneTimeZone);
