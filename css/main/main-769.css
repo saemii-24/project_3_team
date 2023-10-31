@@ -258,6 +258,10 @@
     .weather__box {
         padding: 30px;
     }
+    #weather__summertime--dtc{
+        font-size: 24px;
+        transform: translateY(2px);
+    }
 
     .weather__temp>span,
     .time span {
@@ -286,7 +290,11 @@
         margin-top: 0px;
     }
     .weather__load{
-        font-size: 28px;
+        margin-top: 4px;
+        transform: translateY(16px);
+        span{
+            font-size: 35px;
+        }
     }
 }
 

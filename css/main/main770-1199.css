@@ -232,7 +232,9 @@
     .weather {
         padding-bottom: 200px;
     }
-
+    .weather__load{
+        margin-top: 31px;
+    }
     .weather__align {
         flex-direction: column-reverse;
         gap: 30px;

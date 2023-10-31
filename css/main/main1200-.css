@@ -1068,7 +1068,7 @@ hr{
 }
 
 .weather__load{
-  margin-top:24px;
+  margin-top: 31px;
   width: var(--main-title);
   height: var(--main-title);
 }
