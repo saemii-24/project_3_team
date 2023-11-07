@@ -536,6 +536,7 @@ async function weather(cityName) {
     })
     .catch((error) => {
       console.error("오류가 발생했습니다. 기본값이 출력됩니다.");
+      console.log(error);
 
       document.querySelector(".weather__error").innerText =
         "현재 기본값이 출력 중입니다.";
